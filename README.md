@@ -85,8 +85,8 @@ This implementation differs from the actual WWII Enigma machines in several ways
 | **Plugboard** | Manual wire connections, typically 10 pairs | Fully randomized substitution |
 | **Reflector** | Fixed reflectors (B, C) | Randomly generated symmetric pairs |
 | **Ring Settings** | Adjustable ring positions | Not implemented: this simulation uses random wirings, so the ring offset doesn't add meaningful security |
-| **Notch Positions** | Fixed turnover notches (different per rotor) | Simple position-0 turnover |
-| **Initial Positions** | User-configurable starting positions | Always starts at position 0 |
+| **Notch Positions** | Fixed turnover notches (different per rotor) | Simple position-0 turnover (see above random wirings comment)|
+| **Initial Positions** | User-configurable starting positions | Always starts at position 0 (see above random wirings comment)|
 | **Non-Alpha Characters** | Not possible, or replaced with a fixed letter such as "X" | Spaces and non-alpha characters left unchanged (can be filtered out - see enigmamachine.py/encrypt_message)| 
 
 
