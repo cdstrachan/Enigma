@@ -82,7 +82,7 @@ class EnigmaMachine:
         encrypted_message = ""
         for letter in message:
             if letter == " " or not letter.isalpha():
-                encrypted_message += letter
+                encrypted_message += letter  # Comment out to drop spaces and non-alpha characters
                 continue
             encrypted_letter = self.encrypt_letter(letter)
             encrypted_message += encrypted_letter

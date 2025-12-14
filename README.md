@@ -87,12 +87,15 @@ This implementation differs from the actual WWII Enigma machines in several ways
 | **Ring Settings** | Adjustable ring positions | Not implemented: this simulation uses random wirings, so the ring offset doesn't add meaningful security |
 | **Notch Positions** | Fixed turnover notches (different per rotor) | Simple position-0 turnover |
 | **Initial Positions** | User-configurable starting positions | Always starts at position 0 |
+| **Puncuation and Spaces** | No puncuation or spaces | Puncuation and spaces left unchanged| 
+
 
 ### Why These Deviations?
 
 - **Random Rotors**: Simplifies setup and demonstrates the encryption principle without historical rotor complexity
 - **Flexible Rotor Count**: Allows experimentation with different security levels
 - **Simplified Stepping**: Uses a straightforward odometer mechanism rather than the complex notch system
+- **Readibility**: Make the text easier to read by leaving in puncuation and spaces
 
 ## Configuration Options
 
@@ -216,9 +219,14 @@ This project is educational and demonstrates the core principles of the Enigma m
 
 ## License
 
-This project is for educational purposes.
+Please see the license file.
+
+## Source
+
+Original source at https://github.com/cdstrachan/Enigma
 
 ## Acknowledgments
 
-Inspired by the historical Enigma machine and the brilliant cryptanalysts who broke it.
-# Enigma
+Inspired by the historical Enigma machine and the brilliant cryptanalysts who broke it, and of course Alan Turing, the founder of modern computing.
+
+

@@ -5,11 +5,11 @@ import logging
 from enigmamachine import EnigmaMachine
 
 
-def get_sample_text(length):
+def get_sample_text(file, length):
     """
     Helper function to open a sample text file that contains the text to encrypt/decrypt
     """
-    with open("long_text.txt", "r") as file:
+    with open(file, "r") as file:
         text = file.read().upper()
     text = text.replace('\n', ' ')  # make it one long string
     if length > len(text):
@@ -37,7 +37,7 @@ def main():
     enigma_machine = EnigmaMachine(5)
 
     logger.info("Encrypting message")
-    message = get_sample_text(100)
+    message = get_sample_text("long_text.txt", 100)
 
     # if you prefer to input your own message, uncomment below
     # message = input("Enter the message to encrypt: ").upper()
@@ -46,8 +46,8 @@ def main():
     logger.info(f"Original Message: {message}")
     logger.info(f"Encrypted Message: {cypher_text}")
     logger.info(f"Decrypting message: {decrypted_text}")
-
-    if message == decrypted_text:
+    # Cater for dropping spaces and non-alpha characters in comparison or not
+    if ''.join(filter(str.isalpha, message)) == decrypted_text or message == decrypted_text:
         logger.info("Success: Decrypted text matches the original message.")
     else:
         logger.error("Failure: Decrypted text does NOT match the original message.")
