@@ -95,7 +95,7 @@ This implementation differs from the actual WWII Enigma machines in several ways
 - **Random Rotors**: Simplifies setup and demonstrates the encryption principle without historical rotor complexity
 - **Flexible Rotor Count**: Allows experimentation with different security levels
 - **Simplified Stepping**: Uses a straightforward odometer mechanism rather than the complex notch system
-- **Readibility**: Make the text easier to read by leaving in puncuation and spaces
+- **Readibility**: Make the text easier to read by leaving in puncuation and spaces. Typically you would manually add it in the original message. EG "HOW ARE YOU" could be "HOWXAREXYOU:
 
 ## Configuration Options
 
