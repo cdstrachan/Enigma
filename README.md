@@ -87,7 +87,7 @@ This implementation differs from the actual WWII Enigma machines in several ways
 | **Ring Settings** | Adjustable ring positions | Not implemented: this simulation uses random wirings, so the ring offset doesn't add meaningful security |
 | **Notch Positions** | Fixed turnover notches (different per rotor) | Simple position-0 turnover |
 | **Initial Positions** | User-configurable starting positions | Always starts at position 0 |
-| **Puncuation and Spaces** | No puncuation or spaces | Puncuation and spaces left unchanged| 
+| **Non-Alpha Characters** | Not possible, or replaced with a fixed letter such as "X" | Spaces and non-alpha characters left unchanged (can be filtered out - see enigmamachine.py/encrypt_message)| 
 
 
 ### Why These Deviations?
@@ -95,7 +95,7 @@ This implementation differs from the actual WWII Enigma machines in several ways
 - **Random Rotors**: Simplifies setup and demonstrates the encryption principle without historical rotor complexity
 - **Flexible Rotor Count**: Allows experimentation with different security levels
 - **Simplified Stepping**: Uses a straightforward odometer mechanism rather than the complex notch system
-- **Readibility**: Make the text easier to read by leaving in puncuation and spaces. Typically you would manually add it in the original message. EG "HOW ARE YOU" could be "HOWXAREXYOU:
+- **Readability**: Makes encrypted text easier to read by preserving spaces. Historical operators would manually group letters with a fixed letter. (e.g.,""HOW ARE YOU" ->"HOWXAREXYOU"). Comment out the filter in `enigmamachine.py/encrypt_message` to drop all spaces and non-alpha characters.
 
 ## Configuration Options
 
