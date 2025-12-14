@@ -84,7 +84,7 @@ This implementation differs from the actual WWII Enigma machines in several ways
 | **Number of Rotors** | Typically 3-4 rotors | Configurable (default: 5) |
 | **Plugboard** | Manual wire connections, typically 10 pairs | Fully randomized substitution |
 | **Reflector** | Fixed reflectors (B, C) | Randomly generated symmetric pairs |
-| **Ring Settings** | Adjustable ring positions | Not implemented:his simulation uses random wirings, so the ring offset doesn't add meaningful security |
+| **Ring Settings** | Adjustable ring positions | Not implemented: this simulation uses random wirings, so the ring offset doesn't add meaningful security |
 | **Notch Positions** | Fixed turnover notches (different per rotor) | Simple position-0 turnover |
 | **Initial Positions** | User-configurable starting positions | Always starts at position 0 |
 
