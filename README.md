@@ -167,6 +167,14 @@ Edit `main.py` and uncomment the input line:
 message = input("Enter the message to encrypt: ").upper()
 ```
 
+## Testing
+To test, run the unit tests.
+
+```python
+python -m unittest test_enigma -v
+```
+
+
 ## Project Structure
 
 ```
@@ -176,6 +184,7 @@ Enigma/
 ├── reflector.py        # Reflector with symmetric pairs
 ├── plugboard.py        # Plugboard/patchboard substitution
 ├── main.py             # Demo and entry point
+├── test_enigma.py      # Unit tests
 ├── long_text.txt       # Sample text file (optional)
 └── enigma.log          # Output log file (generated)
 ```
