@@ -6,8 +6,8 @@ logger = logging.getLogger(__name__)
 
 class PatchBoard:
     """
-    Enigmа patch simulation. Note that the patchboard is basically a static rotor.
-    But the advantage is you can wire it yourself.
+    Enigma patch simulation.
+    Patchboard wiring is represented as 13 symmetric letter pairs.
     """
 
     def __init__(self):
@@ -16,13 +16,16 @@ class PatchBoard:
         logger.debug("Patchboard mappings:")
         logger.debug(self.rotor_mappings)
 
-    # setup a random rotor mapping
+    # setup random symmetric patchboard pairs
     def _randomize_rotor(self):
-        positions = [chr(i) for i in range(ord('A'), ord('Z') + 1)]
-        for i in range(ord('A'), ord('Z') + 1):
-            random_position = random.choice(positions)
-            self.rotor_mappings[chr(i)] = random_position
-            positions.remove(random_position)
+        available_letters = [chr(i) for i in range(ord('A'), ord('Z') + 1)]
+        random.shuffle(available_letters)
+
+        for i in range(0, 26, 2):
+            letter1 = available_letters[i]
+            letter2 = available_letters[i + 1]
+            self.rotor_mappings[letter1] = letter2
+            self.rotor_mappings[letter2] = letter1
 
     def get_mapping(self, letter):
         letter = letter.upper()

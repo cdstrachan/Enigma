@@ -152,6 +152,29 @@ print(f"Decrypted: {decrypted}")
 python main.py
 ```
 
+Optional deterministic run:
+
+```bash
+python main.py --seed 1234
+```
+
+### Running the Web App (MVP)
+
+```bash
+python web_server.py
+```
+
+Open `http://127.0.0.1:8000` in your browser.
+
+Current web MVP includes:
+- Session setup with configurable rotor count and optional seed
+- Interactive A-Z keyboard (button click or physical keyboard)
+- Live rotor position display after each keypress
+- Plugboard mapping display
+- Full message encryption mode
+
+The web API already includes a timeline payload (`prePositions`, `postPositions`, stepped rotor indices), so animation can be added without changing the core encryption logic.
+
 By default, this will:
 - Load sample text from `long_text.txt`
 - Encrypt the first 100 characters
@@ -185,6 +208,12 @@ Enigma/
 ├── plugboard.py        # Plugboard/patchboard substitution
 ├── main.py             # Demo and entry point
 ├── test_enigma.py      # Unit tests
+├── web_controller.py    # Session/state controller used by web server
+├── web_server.py        # Standard-library HTTP server for UI + API
+├── web/                # Frontend assets (HTML/CSS/JS)
+│   ├── index.html
+│   ├── styles.css
+│   └── app.js
 ├── long_text.txt       # Sample text file (optional)
 └── enigma.log          # Output log file (generated)
 ```

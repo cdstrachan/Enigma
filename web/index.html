@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enigma Web UI</title>
+  <link rel="stylesheet" href="/web/styles.css">
+</head>
+<body>
+  <main class="app">
+    <h1>Enigma Machine</h1>
+
+    <section class="controls panel">
+      <label class="timer-control">
+        Timer
+        <div class="timer-row">
+          <input id="animationDelay" type="range" min="0" max="5" step="0.1" value="0.5">
+          <span id="animationDelayValue">0.50</span>s
+        </div>
+      </label>
+      <label>
+        Rotors
+        <input id="numRotors" type="number" min="1" max="100" value="3">
+      </label>
+      <label>
+        Seed
+        <input id="seed" type="number" value="1" placeholder="e.g. 42">
+        <span class="checkbox-label">
+          <input id="randomizePositions" type="checkbox" checked>
+          Random Start Positions
+        </span>
+        <span class="seed-note">Same seed reproduces the same wiring and start positions, and hence the same cypher.</span>
+      </label>
+      <button id="startSession">Start Session</button>
+    </section>
+
+    <section class="panel session-gated">
+      <div class="panel-header">
+        <h2>Reflector Settings</h2>
+      </div>
+      <div id="reflectorDisplay" class="reflector-display"></div>
+    </section>
+
+    <section class="panel session-gated">
+      <div class="panel-header">
+        <h2>Rotor Positions</h2>
+      </div>
+      <div id="rotorStrip" class="rotor-strip"></div>
+      <div id="timeline" class="timeline"></div>
+    </section>
+
+    <section class="panel session-gated">
+      <h2>Plugboard Mapping</h2>
+      <div id="plugboard" class="mapping-grid"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Keyboard</h2>
+      <div id="keyboard" class="keyboard"></div>
+      <p>Last key: <span id="lastInput">-</span> → <span id="lastOutput">-</span></p>
+      <p>Current cipher value: <span id="currentTraceValue">-</span></p>
+    </section>
+
+    <section class="panel session-gated message-inline">
+      <h2>Message Mode</h2>
+      <div class="message-controls">
+        <label>Clear Text
+        <textarea id="messageInput" rows="5" placeholder="Type message">Hello</textarea>
+        </label>
+        <div class="message-actions">
+          <button id="encryptMessage">Encrypt</button>
+          <button id="clearMessage">Clear</button>
+        </div>
+        <label>
+          Cypher Text
+          <textarea id="cipherOutput" rows="5" readonly placeholder="Encrypted output appears here"></textarea>
+        </label>
+        <button id="copyCipherToInput">Copy Cypher to Input</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="/web/app.js"></script>
+</body>
+</html>

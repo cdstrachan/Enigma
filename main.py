@@ -1,6 +1,7 @@
 """
 Main entry point for Enigma Machine simulation
 """
+import argparse
 import logging
 from enigmamachine import EnigmaMachine
 
@@ -34,7 +35,11 @@ def main():
     """
     Main entry point
     """
-    enigma_machine = EnigmaMachine(5)
+    parser = argparse.ArgumentParser(description="Run Enigma Machine simulation")
+    parser.add_argument("--seed", type=int, default=None, help="Optional seed for deterministic rotor wiring")
+    args = parser.parse_args()
+
+    enigma_machine = EnigmaMachine(3, seed=args.seed)
 
     logger.info("Encrypting message")
     message = get_sample_text("long_text.txt", 100)
