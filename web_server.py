@@ -123,7 +123,7 @@ class EnigmaRequestHandler(BaseHTTPRequestHandler):
 
 
 def run() -> None:
-    host = "127.0.0.1"
+    host = "0.0.0.0"
     port = 8000
     server = ThreadingHTTPServer((host, port), EnigmaRequestHandler)
     print(f"Enigma web app running at http://{host}:{port}")
