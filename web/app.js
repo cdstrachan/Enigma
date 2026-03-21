@@ -277,7 +277,7 @@ async function startSession() {
   setSessionEnabled(true);
   setBusyState(false);
   const startPositions = data.state.rotorPositions.join(", ");
-  setTimelineText(`Session ready (${sessionId.slice(0, 8)}...) | Start positions: [${startPositions}]`);
+  setTimelineText(`Session ready | Start positions: [${startPositions}]`);
   setCurrentTraceValue("-");
 }
 
