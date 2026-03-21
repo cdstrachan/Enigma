@@ -9,6 +9,7 @@
 <body>
   <main class="app">
     <h1>Enigma Machine</h1>
+    <p>This project can be found here: <a href="https://github.com/cdstrachan/Enigma" target="_blank" rel="noopener noreferrer">https://github.com/cdstrachan/Enigma</a></p>
 
     <section class="controls panel">
       <label class="timer-control">
@@ -46,7 +47,6 @@
         <h2>Rotor Positions</h2>
       </div>
       <div id="rotorStrip" class="rotor-strip"></div>
-      <div id="timeline" class="timeline"></div>
     </section>
 
     <section class="panel session-gated">
@@ -57,13 +57,13 @@
     <section class="panel">
       <h2>Keyboard</h2>
       <div id="keyboard" class="keyboard"></div>
-      <p>Last key: <span id="lastInput">-</span> → <span id="lastOutput">-</span></p>
-      <p>Current cipher value: <span id="currentTraceValue">-</span></p>
     </section>
 
     <section class="panel session-gated message-inline">
-      <h2>Message Mode</h2>
+      <h2>Input</h2>
+      <div id="timeline" class="timeline"></div>
       <div class="message-controls">
+        
         <label>Clear Text
         <textarea id="messageInput" rows="5" placeholder="Type message">Hello</textarea>
         </label>
@@ -75,7 +75,11 @@
           Cypher Text
           <textarea id="cipherOutput" rows="5" readonly placeholder="Encrypted output appears here"></textarea>
         </label>
-        <button id="copyCipherToInput">Copy Cypher to Input</button>
+        <button id="copyCipherToInput">Prep decrypt</button>
+      </div>
+      <div class="message-status">
+        <p>Last key: <span id="lastInput">-</span> → <span id="lastOutput">-</span></p>
+        <p>Current cipher value: <span id="currentTraceValue">-</span></p>
       </div>
     </section>
   </main>

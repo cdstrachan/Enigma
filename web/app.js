@@ -401,12 +401,22 @@ clearMessageBtn.addEventListener("click", () => {
   setTimelineText("Message and cypher cleared.");
 });
 
-copyCipherToInputBtn.addEventListener("click", () => {
-  if (!sessionId) {
+copyCipherToInputBtn.addEventListener("click", async () => {
+  if (!sessionId || isBusy) {
     return;
   }
-  messageInput.value = cipherOutput.value;
-  setTimelineText("Cypher copied into input.");
+
+  const cypherText = cipherOutput.value;
+  messageInput.value = cypherText;
+  cipherOutput.value = "";
+
+  try {
+    await resetRotors();
+    setTimelineText("Ready to decrypt: cypher moved to input, cypher cleared, and rotors reset.");
+  } catch (error) {
+    setBusyState(false);
+    setTimelineText(`Error: ${error.message}`);
+  }
 });
 
 animationDelayInput.addEventListener("input", () => {

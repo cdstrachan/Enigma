@@ -69,7 +69,7 @@ h2 {
 
 .message-controls {
   display: flex;
-  align-items: end;
+  align-items: flex-start;
   gap: 12px;
   flex-wrap: nowrap;
   overflow-x: auto;
@@ -79,11 +79,16 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin-top: 28px;
 }
 
 .message-actions #encryptMessage,
 .message-actions #clearMessage {
   width: 110px;
+}
+
+#copyCipherToInput {
+  margin-top: 28px;
 }
 
 .message-inline h2 {
@@ -103,6 +108,18 @@ h2 {
 .message-inline label {
   width: 320px;
   min-width: 320px;
+}
+
+.message-status {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  color: #840032;
+  font-size: 14px;
+}
+
+.message-status p {
+  margin: 0;
 }
 
 label {

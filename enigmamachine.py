@@ -28,7 +28,7 @@ class EnigmaMachine:
         self.patchboard = PatchBoard()
         if randomize_positions:
             for rotor in self.rotors:
-                rotor.current_position = random.randint(0, 25)
+                rotor.set_initial_position(random.randint(0, 25))
         for rotor in self.rotors:
             logger.debug(f"Rotor {self.rotors.index(rotor)} mappings:")
             logger.debug(rotor.rotor_mappings)

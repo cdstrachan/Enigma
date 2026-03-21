@@ -260,6 +260,16 @@ class TestEnigmaMachine(unittest.TestCase):
                 f"Failed with {num_rotors} rotors"
             )
 
+    def test_reset_returns_to_initial_seeded_positions(self):
+        """Reset should restore each rotor to its startup position, not always zero."""
+        enigma = EnigmaMachine(num_rotors=3, seed=123, randomize_positions=True)
+        initial_positions = [rotor.current_position for rotor in enigma.rotors]
+
+        enigma.encrypt_message("HELLO")
+        reset_positions = [rotor.current_position for rotor in enigma.rotors]
+
+        self.assertEqual(initial_positions, reset_positions)
+
 
 class TestEnigmaIntegration(unittest.TestCase):
     """Integration tests for full encryption/decryption workflow"""

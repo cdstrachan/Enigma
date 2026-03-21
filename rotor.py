@@ -3,18 +3,26 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 class Rotor:
     """ 
     Enigmа rotor simulation
     """
 
     def __init__(self):
-        self.current_position = 0
+        self.initial_position = 0
+        self.current_position = self.initial_position
         self.rotor_mappings = {}
         self._randomize_rotor()
 
     def reset_position(self):
-        self.current_position = 0
+        self.current_position = self.initial_position
+
+    def set_initial_position(self, position):
+        if not isinstance(position, int):
+            raise TypeError("Rotor position must be an integer")
+        self.initial_position = position % 26
+        self.current_position = self.initial_position
 
     # setup a random rotor mapping
     def _randomize_rotor(self):
