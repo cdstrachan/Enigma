@@ -1,6 +1,7 @@
 """
 Simple web server for Enigma frontend and API.
 Run with: python web_server.py
+TODO. make ports dynamic. 
 """
 from __future__ import annotations
 
